@@ -4,25 +4,18 @@
                         <p class="card-text">2. quiz ends by answering all questions or running out of time</p>
                         <p class="card-text">3. when timer reaches zero o all questions answered</p>
                         <p class="rule">4. the quiz will end and present score and player name</p> */
+var i = 0;
+var score = 0;
+var secondsLeft = 60;
+var timer = document.querySelector("#time");
+var messageDiv = document.querySelector("#message");
+var storedScores;
+var scoreList = [];
+var answerOne = document.getElementById("answerOne");
+var answerTwo = document.getElementById("answerTwo");
+var answerThree = document.getElementById("answerThree");
+var answerFour = document.getElementById("answerFour");
 
-
-// question array
-let questionsArray =[
-    "commonly used data types DO NOT include",
-    "the condition in an if/else statement is enclosed within ____.",
-    "arrays in javascript can be used to store ___.",
-    "string values must be enclosed within ___ when being assigned to variables",
-    "a very useful tool used during development and debugging for printing content to the debugger is:",
-]
-// answers array
-let answersArray = [
-    "strings", 
-    "booleans",
-    "numbers",
-    "quotes",
-    "curly brackets",
-    "all of the above"
-]
 $(document).ready(function() {
                         // on click of exit window will close
                         $("#exitBtn").click(function() {
