@@ -4,41 +4,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Fundamentals Quiz | 2021 </title>
-    <!-- mp3 of jeaopardy song -->
+    <title>Fundamentals of JavaScript Quiz | 2021 </title>
+    <!-- mp3 of jeopardy song -->
     <!-- live timer in corner -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- Added link to the jQuery Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!-- Added a link to Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
 </head>
-<h1> "this is a quiz for JS fundamentals"</h1>
+<!-- <style>
+    body {
+        background: url(backgroundImage.png) no-repeat;
+    }
+</style> -->
+<h1>Timed JS Quiz</h1>
 
 <body>
-    <!-- Start Quiz button-->
-    <div class="start_btn"><button>Start Quiz</button></div>
-
     <!--INtro Box-->
-    <div class="info_box">
-        <div class="info_title">
-            <span>Rules of the Quiz</span>
-        </div>
-        <div class="rule_list">
-            <div class="rule">1. click the start button for quiz</div>
-            <div class="rule">2. you will start the timer</div>
-            <div class="rule">3. wrong answers deduct from timer</div>
-            <div class="rule">4. when timer reaches zero o all questions answered</div>
-            <div class="rule">5. the quiz will end and present score and player name</div>
-        </div>
-        <div class="buttons">
-            <button class="quit"> Exit quiz</button>
-            <button class="restart"> Restart quiz</button>
+    <div class="container">
+    
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card" style="width: 30rem;">
+                    <div class="card-header">
+                        <h5 class= "time-text">Time Left</h5>
+                        <h5 class= "timer-sec">15</h5>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Rules for the Quiz</h5>
+                        <p class="card-text">1. Press start to commence timer</p>
+                        <p class="card-text">2. quiz ends by answering all questions or running out of time</p>
+                        <p class="card-text">3. when timer reaches zero o all questions answered</p>
+                        <p class="rule">4. the quiz will end and present score and player name</p>
+                    </div>
+                    <div class="buttons">
+                        <button id="exitBtn" type="button"  class="btn btn-secondary">Exit quiz</button>
+                        <button id="restartBtn" type="button"  class="btn btn-danger">Restart quiz</button>
+                        <button id= "startBtn" type="button"  class="btn btn-primary">Start Quiz</button>
+                    </div>
+                </div>
+            </div>
+            </div>
         </div>
     </div>
+    <!-- The jquery function with listeners and music -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+                        // on click of exit window will close
+                        $("#exitBtn").click(function() {
+                            window.close();
+                        });
+
+                        // on click of restart button
+                        $("#restartBtn").click(function(){
+                        // this is where the quiz needs to restart
+                        });
+
+                        // on click of start button
+                        $("#startBtn").click(function(){
+                        // this is where the music and timer needs to start
+
+
+                        // the questions must be inserted in quiz card 
+                        // points must be awardedd for right answers
+                        // time deducted for incorrect answers
+                        })
+// question array
+let questionsArray =[
+    "commonly used data types DO NOT include",
+    "the condition in an if/else statement is enclosed within ____.",
+    "arrays in javascript can be used to store ___.",
+    "string values must be enclosed within ___ when being assigned to variables",
+    "a very useful tool used during development and debugging for printing content to the debugger is:",
+]
+// answers array
+let answersArray = [
+    "strings", 
+    "booleans",
+    "numbers",
+    "quotes",
+    "curly brackets",
+    "all of the above"
+    
+
+]
+console.log(questionsArray)
+console.log(answersArray)
+
+    </script>
+
 </body>
 
 </html>
+
