@@ -4,7 +4,7 @@
                         <p class="card-text">2. quiz ends by answering all questions or running out of time</p>
                         <p class="card-text">3. when timer reaches zero o all questions answered</p>
                         <p class="rule">4. the quiz will end and present score and player name</p> */
-var i = 0;
+
 var score = 0;
 var secondsLeft = 60;
 var timer = document.querySelector("#time");
