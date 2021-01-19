@@ -48,7 +48,7 @@ function evaluateAnswer(){
         }
         setInterval(function(){
             messageDiv.textContent = "wrong"
-        },2000)
+        },1000)
     } else {
         console.log("correct");
         scoreList.push(questionsArray[Q])
@@ -58,7 +58,7 @@ function evaluateAnswer(){
         }
         setInterval(function(){
             messageDiv.textContent = "correct"
-        },2000)
+        },1000)
     }
     Q++;
     if(Q === questionsArray.length){
