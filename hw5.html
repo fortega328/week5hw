@@ -22,8 +22,7 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" id="highscore-url" href="highScores.html">View Highscores</a></div>
-            <div class="nav navbar-nav navbar-right" id="timer">Time: 0</div>
+                <a class="navbar-brand" id="highscore-url" href="assets/highScores.html">View Highscores</a></div>
         </div>
         </div>
     </nav>
@@ -31,13 +30,11 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6" id= "quiz-panel">
-                <div class="card" style="width: 30rem;">
+                <div class="card" id= "quiz" style="width: 30rem;">
+                    <div class="card-text" id="time">Time: 0</div>  
                     <h2 id ="question"></h2>
                     <div id= "answers">
-                            <button type="button" class ="btn btn-dark" id="answerOne"></button>
-                            <button type="button" class ="btn btn-dark" id="answerTwo"></button>
-                            <button type="button" class ="btn btn-dark" id="answerThree"></button>
-                            <button type="button" class ="btn btn-dark" id="answerFour"></button>
+  
                     </div>
                     <div class ="col-xs-12 col-md-8 col-sm-8" id="buttonDiv">
                         <button type="button" class="btn btn-primary" id="startBtn">Start Quiz</button>
@@ -52,8 +49,8 @@
             </div>
         </div>
         
-    <script src="questions.js"></script>
-    <script src="script.js"></script>
+    <script src="assets/questions.js"></script>
+    <script src="assets/script.js"></script>
     </div>
 </body>
 
