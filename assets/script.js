@@ -6,11 +6,12 @@
                         <p class="rule">4. the quiz will end and present score and player name</p> */
 
 var score = 0;
-var secondsLeft = 60;
+var secondsLeft = 100;
 var timer = document.querySelector("#time");
-var timeInterval;
-var time = 20;
+var timeInterval = 1;
+var time = 100;
 var messageDiv = document.querySelector("#message");
+var messagesDiv = document.querySelector("#messages");
 var storedScores;
 var scoreList = [];
 var Q = 0;
@@ -18,7 +19,7 @@ var Q = 0;
 
 function clockTick(){
     timer.textContent = time;
-    time--
+    time--;
     if(time <= 0){
         time = 0;
         clearPage()
@@ -27,7 +28,7 @@ function clockTick(){
 function buildQuestionCard(){
     var answerBox = document.getElementById("answers");
     answerBox.innerHTML = "";
-    messageDiv.textContent = questionsArray[Q].question,
+    messagesDiv.textContent = questionsArray[Q].question,
     questionsArray[Q].choicesArray.forEach(function(choice){
         var button = document.createElement("button");
         button.textContent = choice;
@@ -38,28 +39,38 @@ function buildQuestionCard(){
     })
 }
 function evaluateAnswer(){
-    console.log(this.value)
+    messageDiv.textContent = "";
+    messageDiv.removeAttribute("class", "hide");
+    console.log(this.value);
     if(this.value !== questionsArray[Q].answer){
         console.log("wrong");
-        time -10;
+        time-10;
+        messageDiv.textContent = "wrong"
+        // need to clear the message of right or wrong
+        // messageDiv.textContent = "";
         if(time <= 0){
             time = 0;
             clearPage()
         }
-        setInterval(function(){
-            messageDiv.textContent = "wrong"
-        },1000)
     } else {
         console.log("correct");
         scoreList.push(questionsArray[Q])
+        messageDiv.textContent = "correct"
+        score++;
+        // need to clear the message of right or wrong
+        // messageDiv.textContent = "";
+        
+        
         if(time <= 0){
             time = 0;
             clearPage()
+            
         }
-        setInterval(function(){
-            messageDiv.textContent = "correct"
-        },1000)
+        
     }
+    setTimeout(function(){
+        messageDiv.setAttribute("class", "hide")
+    }, 500)
     Q++;
     if(Q === questionsArray.length){
         console.log("end game")
@@ -70,10 +81,24 @@ function evaluateAnswer(){
     
 }
 
+
 function clearPage(){
+    var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
     var quizCard = document.getElementById("quiz")
     quizCard.innerHTML = "";
-    clearInterval(timeInterval)
+    clearInterval(timeInterval);
+    var initials = "CQY";
+    var score = time * scoreList.length;
+
+    var highScore = {
+        initials,
+        score
+    }
+    highScores.push(highScore)
+    console.log(highScores);
+
+    localStorage.setItem("highScores", JSON.stringify(highScores))
+    console.log(localStorage)
 }
 var startBtn = document.getElementById("startBtn")
 startBtn.addEventListener("click", function(){
@@ -82,29 +107,4 @@ startBtn.addEventListener("click", function(){
     
 })
 
-
-
-// $(document).ready(function() {
-//                         // on click of exit window will close
-//                         $("#exitBtn").click(function() {
-//                             return;
-//                         });
-
-//                         // on click of restart button
-//                         $("#restartBtn").click(function(){
-//                         // this is where the quiz needs to restart
-                            
-//                         });
-
-//                         // on click of start button
-//                         $("#startBtn").click(function(){
-//                         // this is where the music and timer needs to start
-//                          // $(".play").trigger("play")
-
-//                         // the questions must be inserted in quiz card 
-//                         // points must be awardedd for right answers
-//                         // time deducted for incorrect answers
-//                         });
-
-//                     })
 
